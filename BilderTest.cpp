@@ -1,5 +1,4 @@
-﻿// BilderTest.cpp: определяет точку входа для приложения.
-//
+﻿
 #include <map>
 #include "BilderTest.h"
 #include "FooF.h"
