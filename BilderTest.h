@@ -7,6 +7,8 @@
 #include <vector>
 #include <map>
 #include <thread>
+#include <exception>
+#include <stdexcept>
 
 
 struct Target {
@@ -78,7 +80,9 @@ public:
 
 
 	void execute(const BuildGraph& build_graph, size_t target_id) {
-		if (!build_graph.is_loop()) { return; }
+		if (!build_graph.is_loop()) { 
+			throw "Loop in graph";
+		 }
 		int dim = build_graph.get_dim();
 		std::vector<std::shared_ptr<Target>> nodes = build_graph.get_graph();
 		std::vector<std::vector<int>> adj_matrix = build_graph.get_matrix();
